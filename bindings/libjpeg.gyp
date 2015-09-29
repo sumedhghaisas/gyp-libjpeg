@@ -46,7 +46,6 @@
                 "../libjpeg/cjpeg.c",
                 "../libjpeg/ckconfig.c",
                 "../libjpeg/djpeg.c",
-                "../libjpeg/example.c",
                 "../libjpeg/jaricom.c",
 		"../libjpeg/jcapimin.c",
                 "../libjpeg/jcapistd.c",
