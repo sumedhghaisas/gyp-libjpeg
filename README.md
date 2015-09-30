@@ -3,6 +3,10 @@ Gypified version of libjpeg.
 
 The latest version of [libjpeg](https://github.com/LuaDist/libjpeg) is gypified for use in nodejs. 
 
+## Dependencies
+
+ * nodejs 0.12.*
+
 ## How to use
 
 1) Add this repo in your project
