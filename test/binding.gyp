@@ -10,7 +10,8 @@
         "cjpeg_wrapper.cpp",
       ],
       "include_dirs": [
-        "../libjpeg"
+        "../libjpeg",
+	"../config/<(OS)/<(target_arch)"
       ],
     }
   ]
