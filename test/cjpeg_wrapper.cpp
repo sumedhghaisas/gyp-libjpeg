@@ -14,14 +14,14 @@ int to_jpeg_wrap(const string& str_input_file, const string& str_output_file)
   return to_jpeg(str_input_file.c_str(), str_output_file.c_str());
 }
 
-Handle<Value> com_to_jpeg(const Arguments& args)
+void com_to_jpeg(const FunctionCallbackInfo<v8::Value>& args)
 {
-  HandleScope scope;
-
+  v8::Isolate* isolate;
+  isolate = args.GetIsolate();
   if(args.Length() != 2)
   {
-    ThrowException(Exception::TypeError(String::New("Exactly 2 arguments are required!: input-filename, output-filename")));
-    return scope.Close(Undefined());
+    args.GetReturnValue().Set(Undefined(isolate));
+	return;
   }
 
   String::Utf8Value param1(args[0]->ToString());
@@ -31,14 +31,16 @@ Handle<Value> com_to_jpeg(const Arguments& args)
   string output_filename(*param2);
 
   int status = to_jpeg_wrap(input_filename, output_filename);
-  Local<Number> out = Number::New(status);
-  return scope.Close(out);
+  Local<Number> out = Number::New(isolate, status);
+  args.GetReturnValue().Set(out);
+  return;
 }
 
 void init(Handle<Object> exports) 
 {
-  exports->Set(String::NewSymbol("toJpeg"),
-      FunctionTemplate::New(com_to_jpeg)->GetFunction());
+  Isolate* isolate = v8::Isolate::GetCurrent();
+  exports->Set(String::NewFromUtf8(isolate, "toJpeg", v8::String::kInternalizedString),
+      FunctionTemplate::New(isolate, com_to_jpeg)->GetFunction());
 }
  
 NODE_MODULE(jpeg_test, init)
