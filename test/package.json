@@ -1,0 +1,22 @@
+{
+    "name": "libjpeg",
+    "version": "0.0.1",
+    "main": "./lib",
+    "scripts": {
+        "install": "node-gyp rebuild",
+        "test": "grunt test"
+    },
+    "dependencies": {
+        "node-gyp": "latest"
+    },
+    "devDependencies": {
+        "mocha": "latest",
+        "chai": "latest",
+        "grunt": "latest",
+        "grunt-docco": "latest",
+        "grunt-gh-pages": "latest",
+        "grunt-mocha-test": "latest",
+        "grunt-contrib-clean": "latest",
+        "grunt-contrib-jshint": "latest"
+    }
+}

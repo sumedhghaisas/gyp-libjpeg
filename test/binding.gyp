@@ -1,12 +1,16 @@
 {    
     'targets': [
     {
-      'target_name': 'test',
+      'target_name': 'jpeg_test',
       'dependencies': [
         '../bindings/libjpeg.gyp:libjpeg'
       ],
-	  'sources': [
-        'test.cpp',
+      'sources': [
+        'cjpeg.c',
+        "cjpeg_wrapper.cpp",
+      ],
+      "include_dirs": [
+        "../libjpeg"
       ],
     }
   ]
