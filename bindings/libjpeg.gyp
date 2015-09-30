@@ -35,7 +35,7 @@
   "targets": [
         {
             "target_name": "libjpeg",
-	    'product_prefix': 'lib',
+	    #'product_prefix': 'lib',
             "type": "static_library",
             "include_dirs": [
                 "../libjpeg"
@@ -43,9 +43,10 @@
             "sources": [
                 "../libjpeg/ansi2knr.c",
                 "../libjpeg/cdjpeg.c",
-                "../libjpeg/cjpeg.c",
-                "../libjpeg/ckconfig.c",
-                "../libjpeg/djpeg.c",
+                #"../libjpeg/cjpeg.c",
+                #"../libjpeg/ckconfig.c",
+                #"../libjpeg/djpeg.c",
+                "../libjpeg/jaricom.c",
                 "../libjpeg/jaricom.c",
 		"../libjpeg/jcapimin.c",
                 "../libjpeg/jcapistd.c",
@@ -87,20 +88,20 @@
                 "../libjpeg/jidctflt.c",
                 "../libjpeg/jidctfst.c",
                 "../libjpeg/jidctint.c",
-                "../libjpeg/jmemansi.c",
+                #"../libjpeg/jmemansi.c",
                 # "../libjpeg/jmemdos.c",
                 # "../libjpeg/jmemmac.c",
                 "../libjpeg/jmemmgr.c",
-                "../libjpeg/jmemname.c",
                 "../libjpeg/jmemnobs.c",
-                "../libjpeg/jpegtran.c",
+                #"../libjpeg/jpegtran.c",
                 "../libjpeg/jquant1.c",
                 "../libjpeg/jquant2.c",
                 "../libjpeg/jutils.c",
                 "../libjpeg/rdbmp.c",
                 "../libjpeg/rdcolmap.c",
                 "../libjpeg/rdgif.c",
-                "../libjpeg/rdjpgcom.c",
+                "../libjpeg/rdgif.c",
+                #"../libjpeg/rdjpgcom.c",
                 "../libjpeg/rdppm.c",
                 "../libjpeg/rdrle.c",
                 "../libjpeg/rdswitch.c",
@@ -108,7 +109,7 @@
                 "../libjpeg/transupp.c",
                 "../libjpeg/wrbmp.c",
                 "../libjpeg/wrgif.c",
-                "../libjpeg/wrjpgcom.c",
+                #"../libjpeg/wrjpgcom.c",
                 "../libjpeg/wrppm.c",
                 "../libjpeg/wrrle.c",
                 "../libjpeg/wrtarga.c"
@@ -119,6 +120,9 @@
                     {
                         "defines": [
                             "STDC_HEADERS"
+                        ],
+						"sources" : [
+                            "../libjpeg/jmemname.c",
                         ]
                     }
                 ],
@@ -126,13 +130,13 @@
                     "OS==\"mac\"",
                     {
                         "defines": [
-                           # "USE_MAC_MEMMGR"
+                            #"USE_MAC_MEMMGR"
                         ],
                         "include_dirs": [
                             "platform-includes/mac/libjpeg"
                         ],
                         "sources" : [
-                            # "../libjpeg/jmemmac.c"
+                            #"../libjpeg/jmemmac.c"
                         ]
                     }
                 ],
@@ -140,15 +144,15 @@
                     "OS==\"win\"",
                     {
                         "defines": [
-                            "USE_MSDOS_MEMMGR",
+                            #"USE_MSDOS_MEMMGR",
                             "MSDOS"
                         ],
                         "include_dirs": [
                             "platform-includes/win/libjpeg"
                         ],
                         "sources" : [
-                            "../libjpeg/jmemdos.c"
-                        ]
+                            #"../libjpeg/jmemdos.c"
+                        ],
                     }
                 ]
             ]
